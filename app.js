@@ -25,8 +25,8 @@ app.use(session(sess))
 const dbURL = "mongodb://127.0.0.1:27017/statstracker"
 mongoose.connect(dbURL)
 
-const mainRoute = require("./routes/mainRoute")
-app.use(mainRoute)
+const index = require("./routes/index")
+app.use(index)
 
 const login = require("./routes/login")
 app.use(login)

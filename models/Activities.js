@@ -1,11 +1,12 @@
 const mongose = require("mongoose")
 
 const newActivitySchema = new mongoose.Schema ({
-  activityName: {type:String, required: true},
-  unitMeasured: {type:String, require: true},
+  userId: {type: Number, required: true, unique:true},
+  activityName: {type: String, required: true},
+  unitMeasured: {type: String, require: true},
   stats: [{
-    date: {type:String, required: true},
-    record: {type:Number, required: true}
+    date: {type: String, required: true},
+    record: {type: Number, required: true}
   }]
 })
 

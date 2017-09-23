@@ -9,7 +9,15 @@ router.get("/register", function (req, res){
 })
 
 router.post("/register", function(req, res){
-
+  const username = req.body.username
+  const passwordHash = req.body.passwordHash
+  const user = new User()
+  user.username = username
+  user.passwordHash = bcrypt.hashSync(passwordHash, 8)
+  user.save().then(function(user){
+    res.redirect('/login')
+  })
 })
+
 
 module.exports = router
